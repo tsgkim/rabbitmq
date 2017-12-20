@@ -1,21 +1,21 @@
 package com.tsgkim.demo1;
 
 import com.rabbitmq.client.*;
+import com.tsgkim.common.AMQConnectionFactory;
 
 import java.io.IOException;
 
-public class Recv {
+/**
+ * @Description: 服务端
+ * @author: shiguang.tu
+ * @create: 2017/12/20 下午3:51
+ */
+public class Service {
 
     private final static String QUEUE_NAME = "hello";
 
     public static void main(String[] argv) throws Exception {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("118.123.6.216");
-        factory.setUsername("guest");
-        factory.setPassword("guest");
-        factory.setPort(11067);
-        factory.setVirtualHost("/");
-        Connection connection = factory.newConnection();
+        Connection connection = AMQConnectionFactory.getConnection();
         Channel channel = connection.createChannel();
 
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
