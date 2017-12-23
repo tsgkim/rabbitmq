@@ -1,0 +1,12 @@
+com.tsgkim.demo2 演示 分布式服务中，同时有多个客户端进行密集请求，service端增加相同的服务应对策略。
+
+使用说明：
+    1. 启动 com.tsgkim.demo2.Service1
+    2. 启动 com.tsgkim.demo2.Service2
+    3. 启动 com.tsgkim.demo1.Client1 输入 a..........
+    4. 启动 com.tsgkim.demo2.Client2 输入 b..........
+    最终效果可以看到 Client1 发送的请求被 Service1 收到， 然后占据 20s 时间进行处理==》此刻 Service1 是 忙碌状态，
+继续马上启动 Client2， 由于 Service1 还在处理 Client1 请求， 所以 Service2 收到 Client2 发送的请求 然后占据 20s
+时间进行处理。
+
+

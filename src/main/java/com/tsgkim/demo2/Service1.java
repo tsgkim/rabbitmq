@@ -10,8 +10,8 @@ import java.io.IOException;
  * @author: shiguang.tu
  * @create: 2017/12/20 下午4:04
  */
-public class Service {
-    private static final String TASK_QUEUE_NAME = "task_queue";
+public class Service1 {
+    private static final String TASK_QUEUE_NAME = "task_my_queue";
 
     public static void main(String[] argv) throws Exception {
         Connection connection = AMQConnectionFactory.getConnection();
@@ -43,7 +43,7 @@ public class Service {
         for (char ch : task.toCharArray()) {
             if (ch == '.') {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException _ignored) {
                     Thread.currentThread().interrupt();
                 }
