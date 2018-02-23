@@ -15,7 +15,9 @@ public class Service {
     private final static String QUEUE_NAME = "hello";
 
     public static void main(String[] argv) throws Exception {
+        // 创建连接
         Connection connection = AMQConnectionFactory.getConnection();
+        // 创建信道
         Channel channel = connection.createChannel();
 
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);

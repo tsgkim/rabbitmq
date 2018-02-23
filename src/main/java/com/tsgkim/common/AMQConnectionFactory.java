@@ -16,8 +16,8 @@ public class AMQConnectionFactory {
     public static Connection getConnection() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("118.123.6.216");
-        factory.setUsername("guest");
-        factory.setPassword("guest");
+        factory.setUsername("root");
+        factory.setPassword("root123");
         factory.setPort(11067);
         factory.setVirtualHost("/");
         return factory.newConnection();
